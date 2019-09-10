@@ -35,7 +35,7 @@
         <script src="js/proj4.js"></script>
         <script src="js/proj4leaflet.js"></script>
         <script src="data/DIST_0.js"></script>
-        <script src="data/SITECARBONEcopier_1.js"></script>
+        <script src="data/DISTRICTCORRECTcopier_1.js"></script>
         <script>
         var crs = new L.Proj.CRS('EPSG:32738', '+proj=utm +zone=38 +south +datum=WGS84 +units=m +no_defs', {
             resolutions: [2800, 1400, 700, 350, 175, 84, 42, 21, 11.2, 5.6, 2.8, 1.4, 0.7, 0.35, 0.14, 0.07],
@@ -254,16 +254,52 @@
         });
         bounds_group.addLayer(layer_DIST_0);
         map.addLayer(layer_DIST_0);
-        function pop_SITECARBONEcopier_1(feature, layer) {
+        function pop_DISTRICTCORRECTcopier_1(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['CODE'] !== null ? Autolinker.link(String(feature.properties['CODE'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['District'] !== null ? Autolinker.link(String(feature.properties['District'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['NOM'] !== null ? Autolinker.link(String(feature.properties['NOM'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['Dist_pcode'] !== null ? Autolinker.link(String(feature.properties['Dist_pcode'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>GES_DIRECT</strong><br />' + (feature.properties['GES_DIRECT'] !== null ? Autolinker.link(String(feature.properties['GES_DIRECT'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['D_code'] !== null ? Autolinker.link(String(feature.properties['D_code'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Region'] !== null ? Autolinker.link(String(feature.properties['Region'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Reg_pcode'] !== null ? Autolinker.link(String(feature.properties['Reg_pcode'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['R_code'] !== null ? Autolinker.link(String(feature.properties['R_code'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Source'] !== null ? Autolinker.link(String(feature.properties['Source'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Milieu'] !== null ? Autolinker.link(String(feature.properties['Milieu'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Code_provi'] !== null ? Autolinker.link(String(feature.properties['Code_provi'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Province'] !== null ? Autolinker.link(String(feature.properties['Province'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Population'] !== null ? Autolinker.link(String(feature.properties['Population'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Nombre_de_'] !== null ? Autolinker.link(String(feature.properties['Nombre_de_'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Surface_Di'] !== null ? Autolinker.link(String(feature.properties['Surface_Di'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Densité_p'] !== null ? Autolinker.link(String(feature.properties['Densité_p'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SommeGES_D'] !== null ? Autolinker.link(String(feature.properties['SommeGES_D'])) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Longitude'] !== null ? Autolinker.link(String(feature.properties['Longitude'])) : '') + '</td>\
@@ -271,55 +307,37 @@
                     <tr>\
                         <td colspan="2">' + (feature.properties['Latitude'] !== null ? Autolinker.link(String(feature.properties['Latitude'])) : '') + '</td>\
                     </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Fokontany'] !== null ? Autolinker.link(String(feature.properties['Fokontany'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Commune'] !== null ? Autolinker.link(String(feature.properties['Commune'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['District'] !== null ? Autolinker.link(String(feature.properties['District'])) : '') + '</td>\
-                    </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_SITECARBONEcopier_1_0() {
+        function style_DISTRICTCORRECTcopier_1_0() {
             return {
-                pane: 'pane_SITECARBONEcopier_1',
-                radius: 1.110224e-16,
-                opacity: 1,
-                color: 'rgba(0,0,0,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 2.0,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(0,27,10,1.0)',
-                interactive: true,
+                fill: false,
+                stroke: false,
+                interactive: false
             }
         }
-        map.createPane('pane_SITECARBONEcopier_1');
-        map.getPane('pane_SITECARBONEcopier_1').style.zIndex = 401;
-        map.getPane('pane_SITECARBONEcopier_1').style['mix-blend-mode'] = 'normal';
-        var layer_SITECARBONEcopier_1 = new L.geoJson(json_SITECARBONEcopier_1, {
+        map.createPane('pane_DISTRICTCORRECTcopier_1');
+        map.getPane('pane_DISTRICTCORRECTcopier_1').style.zIndex = 401;
+        map.getPane('pane_DISTRICTCORRECTcopier_1').style['mix-blend-mode'] = 'normal';
+        var layer_DISTRICTCORRECTcopier_1 = new L.geoJson(json_DISTRICTCORRECTcopier_1, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_SITECARBONEcopier_1',
-            layerName: 'layer_SITECARBONEcopier_1',
-            pane: 'pane_SITECARBONEcopier_1',
-            onEachFeature: pop_SITECARBONEcopier_1,
+            dataVar: 'json_DISTRICTCORRECTcopier_1',
+            layerName: 'layer_DISTRICTCORRECTcopier_1',
+            pane: 'pane_DISTRICTCORRECTcopier_1',
+            onEachFeature: pop_DISTRICTCORRECTcopier_1,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_SITECARBONEcopier_1_0(feature));
+                return L.circleMarker(latlng, style_DISTRICTCORRECTcopier_1_0(feature));
             },
         });
-        bounds_group.addLayer(layer_SITECARBONEcopier_1);
-        map.addLayer(layer_SITECARBONEcopier_1);
+        bounds_group.addLayer(layer_DISTRICTCORRECTcopier_1);
+        map.addLayer(layer_DISTRICTCORRECTcopier_1);
         var osmGeocoder = new L.Control.Geocoder({
             collapsed: true,
             position: 'topleft',
@@ -331,7 +349,7 @@
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/SITECARBONEcopier_1.png" /> SITECARBONE copier': layer_SITECARBONEcopier_1,'DIST<br /><table><tr><td style="text-align: center;"><img src="legend/DIST_0_010000.png" /></td><td>0 - 1000</td></tr><tr><td style="text-align: center;"><img src="legend/DIST_0_100020001.png" /></td><td>1000 - 2000</td></tr><tr><td style="text-align: center;"><img src="legend/DIST_0_200030002.png" /></td><td>2000 - 3000</td></tr><tr><td style="text-align: center;"><img src="legend/DIST_0_300040003.png" /></td><td>3000 - 4000</td></tr><tr><td style="text-align: center;"><img src="legend/DIST_0_400040004.png" /></td><td>4000 - 4000</td></tr><tr><td style="text-align: center;"><img src="legend/DIST_0_400050005.png" /></td><td>4000 - 5000</td></tr><tr><td style="text-align: center;"><img src="legend/DIST_0_500060006.png" /></td><td>5000 - 6000</td></tr><tr><td style="text-align: center;"><img src="legend/DIST_0_600070007.png" /></td><td>6000 - 7000</td></tr><tr><td style="text-align: center;"><img src="legend/DIST_0_700080008.png" /></td><td>7000 - 8000</td></tr><tr><td style="text-align: center;"><img src="legend/DIST_0_800090009.png" /></td><td>8000 - 9000</td></tr></table>': layer_DIST_0,}).addTo(map);
+        L.control.layers(baseMaps,{'': layer_DISTRICTCORRECTcopier_1,'DIST<br /><table><tr><td style="text-align: center;"><img src="legend/DIST_0_010000.png" /></td><td>0 - 1000</td></tr><tr><td style="text-align: center;"><img src="legend/DIST_0_100020001.png" /></td><td>1000 - 2000</td></tr><tr><td style="text-align: center;"><img src="legend/DIST_0_200030002.png" /></td><td>2000 - 3000</td></tr><tr><td style="text-align: center;"><img src="legend/DIST_0_300040003.png" /></td><td>3000 - 4000</td></tr><tr><td style="text-align: center;"><img src="legend/DIST_0_400040004.png" /></td><td>4000 - 4000</td></tr><tr><td style="text-align: center;"><img src="legend/DIST_0_400050005.png" /></td><td>4000 - 5000</td></tr><tr><td style="text-align: center;"><img src="legend/DIST_0_500060006.png" /></td><td>5000 - 6000</td></tr><tr><td style="text-align: center;"><img src="legend/DIST_0_600070007.png" /></td><td>6000 - 7000</td></tr><tr><td style="text-align: center;"><img src="legend/DIST_0_700080008.png" /></td><td>7000 - 8000</td></tr><tr><td style="text-align: center;"><img src="legend/DIST_0_800090009.png" /></td><td>8000 - 9000</td></tr></table>': layer_DIST_0,}).addTo(map);
         map.on("zoomend", function(){
 
                 if (map.hasLayer(layer_DIST_0)) {
@@ -360,6 +378,19 @@
               addLabel(layer, i);
               i++;
         });
+        var i = 0;
+        layer_DISTRICTCORRECTcopier_1.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((exp_label_DISTRICTCORRECTcopier_1_eval_expression(context) !== null?String('<div style="color: #000000; font-size: 10pt; font-family: \'MS Shell Dlg 2\', sans-serif;">' + exp_label_DISTRICTCORRECTcopier_1_eval_expression(context)) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_DISTRICTCORRECTcopier_1'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
                 if (map.hasLayer(layer_DIST_0)) {
                     if (map.getZoom() <= 19 && map.getZoom() >= 19) {
                         layer_DIST_0.eachLayer(function (layer) {
@@ -371,15 +402,15 @@
                         });
                     }
                 }
-        resetLabels([layer_DIST_0,layer_SITECARBONEcopier_1]);
+        resetLabels([layer_DIST_0,layer_DISTRICTCORRECTcopier_1]);
         map.on("zoomend", function(){
-            resetLabels([layer_DIST_0,layer_SITECARBONEcopier_1]);
+            resetLabels([layer_DIST_0,layer_DISTRICTCORRECTcopier_1]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_DIST_0,layer_SITECARBONEcopier_1]);
+            resetLabels([layer_DIST_0,layer_DISTRICTCORRECTcopier_1]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_DIST_0,layer_SITECARBONEcopier_1]);
+            resetLabels([layer_DIST_0,layer_DISTRICTCORRECTcopier_1]);
         });
         </script>
     </body>
