@@ -754,30 +754,3 @@ function fnc__specialcol_(values, context) {
 function fnc_project_color(values, context) {
     return false;
 };
-
-
-
-function exp_label_DIST_0_eval_expression(context) {
-    // DISTRICTCARBONELONGLAT_SommeGES_D || '\n' || '  ' || ' T'
-
-    var feature = context.feature;
-    
-    if (feature.properties) {
-        return (((feature.properties['DISTRICTCARBONELONGLAT_SommeGES_D']  + '\n') + '  ') + ' T');
-    } else {
-        return (((feature['DISTRICTCARBONELONGLAT_SommeGES_D']  + '\n') + '  ') + ' T');
-    }
-}
-
-
-function exp_label_DISTRICTCORRECTcopier_1_eval_expression(context) {
-    // SommeGES_D || ' T' || '\n' || District
-
-    var feature = context.feature;
-    
-    if (feature.properties) {
-        return (((feature.properties['SommeGES_D']  + ' T') + '\n') + feature.properties['District'] );
-    } else {
-        return (((feature['SommeGES_D']  + ' T') + '\n') + feature['District'] );
-    }
-}
