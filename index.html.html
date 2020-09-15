@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/MarkerCluster.css">
+        <link rel="stylesheet" href="css/MarkerCluster.Default.css">
+        <link rel="stylesheet" href="css/leaflet-search.css">
+        <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
+        <style>
+        #map {
+            width: 1211px;
+            height: 808px;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
+        <script src="js/leaflet.markercluster.js"></script>
+        <script src="js/leaflet-search.js"></script>
+        <script src="data/Pourcarteinteractive_1.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[-20.349114981553182,45.326480709346434],[-16.813442028178585,50.922740770770886]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        map.createPane('pane_GoogleHybrid_0');
+        map.getPane('pane_GoogleHybrid_0').style.zIndex = 400;
+        var layer_GoogleHybrid_0 = L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
+            pane: 'pane_GoogleHybrid_0',
+            opacity: 1.0,
+            attribution: '<a href="https://www.google.at/permissions/geoguidelines/attr-guide.html">Map data ©2015 Google</a>',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 20
+        });
+        layer_GoogleHybrid_0;
+        map.addLayer(layer_GoogleHybrid_0);
+        function pop_Pourcarteinteractive_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['"CodeNom"'] !== null ? autolinker.link(feature.properties['"CodeNom"'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['"Longitude"'] !== null ? autolinker.link(feature.properties['"Longitude"'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['"Latitude"'] !== null ? autolinker.link(feature.properties['"Latitude"'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['"Altittude_Th�orique"'] !== null ? autolinker.link(feature.properties['"Altittude_Th�orique"'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['"Fokontany"'] !== null ? autolinker.link(feature.properties['"Fokontany"'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['"Commune"'] !== null ? autolinker.link(feature.properties['"Commune"'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['"District"'] !== null ? autolinker.link(feature.properties['"District"'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['"R�gion"'] !== null ? autolinker.link(feature.properties['"R�gion"'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['"Urbain_Rural"'] !== null ? autolinker.link(feature.properties['"Urbain_Rural"'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['"TYPO_NRJ"'] !== null ? autolinker.link(feature.properties['"TYPO_NRJ"'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['"ON_GRID___OFF_GRID"'] !== null ? autolinker.link(feature.properties['"ON_GRID___OFF_GRID"'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['"Zone_JIRAMA"'] !== null ? autolinker.link(feature.properties['"Zone_JIRAMA"'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['"Zone_de_Vent"'] !== null ? autolinker.link(feature.properties['"Zone_de_Vent"'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['"Type_d_infra"'] !== null ? autolinker.link(feature.properties['"Type_d_infra"'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['"Infra_x3"'] !== null ? autolinker.link(feature.properties['"Infra_x3"'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['"Tom_Twin"'] !== null ? autolinker.link(feature.properties['"Tom_Twin"'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['"Hauteur__m_"'] !== null ? autolinker.link(feature.properties['"Hauteur__m_"'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['"Type_Transmission"'] !== null ? autolinker.link(feature.properties['"Type_Transmission"'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['"PHASE"'] !== null ? autolinker.link(feature.properties['"PHASE"'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['"TOM_TWIN_PICOM_FORFAIT"'] !== null ? autolinker.link(feature.properties['"TOM_TWIN_PICOM_FORFAIT"'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['"date_RFI___rachat_ou_KICKOFF"'] !== null ? autolinker.link(feature.properties['"date_RFI___rachat_ou_KICKOFF"'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['"RFI_DOP"'] !== null ? autolinker.link(feature.properties['"RFI_DOP"'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['"Statut_1"'] !== null ? autolinker.link(feature.properties['"Statut_1"'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['field_24'] !== null ? autolinker.link(feature.properties['field_24'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Pourcarteinteractive_1_0() {
+            return {
+                pane: 'pane_Pourcarteinteractive_1',
+                radius: 3.999999999999997,
+                opacity: 1,
+                color: 'rgba(50,87,128,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(16,109,239,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Pourcarteinteractive_1');
+        map.getPane('pane_Pourcarteinteractive_1').style.zIndex = 401;
+        map.getPane('pane_Pourcarteinteractive_1').style['mix-blend-mode'] = 'normal';
+        var layer_Pourcarteinteractive_1 = new L.geoJson(json_Pourcarteinteractive_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Pourcarteinteractive_1',
+            layerName: 'layer_Pourcarteinteractive_1',
+            pane: 'pane_Pourcarteinteractive_1',
+            onEachFeature: pop_Pourcarteinteractive_1,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Pourcarteinteractive_1_0(feature));
+            },
+        });
+        var cluster_Pourcarteinteractive_1 = new L.MarkerClusterGroup({showCoverageOnHover: false,
+            spiderfyDistanceMultiplier: 2});
+        cluster_Pourcarteinteractive_1.addLayer(layer_Pourcarteinteractive_1);
+
+        bounds_group.addLayer(layer_Pourcarteinteractive_1);
+        cluster_Pourcarteinteractive_1.addTo(map);
+        var osmGeocoder = new L.Control.Geocoder({
+            collapsed: true,
+            position: 'topleft',
+            text: 'Search',
+            title: 'Testing'
+        }).addTo(map);
+        document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
+        .className += ' fa fa-search';
+        document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
+        .title += 'Search for a place';
+        setBounds();
+        var i = 0;
+        layer_Pourcarteinteractive_1.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['"CodeNom"'] !== null?String('<div style="color: #ffffff; font-size: 8pt; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['"CodeNom"']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Pourcarteinteractive_1'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        map.addControl(new L.Control.Search({
+            layer: cluster_Pourcarteinteractive_1,
+            initial: false,
+            hideMarkerOnCollapse: true,
+            propertyName: '"CodeNom"'}));
+        document.getElementsByClassName('search-button')[0].className +=
+         ' fa fa-binoculars';
+        resetLabels([layer_Pourcarteinteractive_1]);
+        map.on("zoomend", function(){
+            resetLabels([layer_Pourcarteinteractive_1]);
+        });
+        map.on("layeradd", function(){
+            resetLabels([layer_Pourcarteinteractive_1]);
+        });
+        map.on("layerremove", function(){
+            resetLabels([layer_Pourcarteinteractive_1]);
+        });
+        </script>
+    </body>
+</html>
